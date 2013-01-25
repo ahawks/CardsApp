@@ -39,6 +39,8 @@
 <body>
 
 <script src="//hangoutsapi.talkgadget.google.com/hangouts/_/api/hangout.js?v=1.2"></script>
+<script src="https://raw.github.com/ahawks/CardsApp/master/cardsApp.js">
+</script>
 
 <h3>Open Card Game</h3>
 
@@ -50,13 +52,7 @@
 
 <div id="participantsDiv"></div>
 
-<hr>
-
-<p><a href="http://developers.google.com/+/hangouts/getting-started">Read the docs</a> to learn more about developing hangouts!</a></p>
-
-<script language="JavaScript" src="https://raw.github.com/ahawks/CardsApp/master/cardsApp.js"></script>
 <script>
-
 
 // Wait for gadget to load.                                                       
 gadgets.util.registerOnLoadHandler(init);
