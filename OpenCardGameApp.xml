@@ -115,6 +115,20 @@ function shuffle(deck) {
   }
 }
 
+var onStateChange = function(eventObj) {
+  for (var i = 0; i < eventObj.addedKeys.length; ++i) {
+    alert(eventObj.addedKeys[i].key + " : " + 
+        eventObj.addedKeys[i].value + ", " + 
+        eventObj.addedKeys[i].timestamp);
+  }
+  //for (var j = 0; j < eventObj.removedKeys.length; ++j) {
+  //  bar(eventObj.removedKeys[j]);
+  //}
+  state_ = eventObj.state;
+  metadata_ = eventObj.metadata;
+};
+
+gapi.hangout.data.onStateChanged.add(onStateChange);
 
 
 function init() {
@@ -130,8 +144,8 @@ function init() {
         deck = buildDeck52();
         shuffle(deck);
 
-        gapi.hangout.data.submitDelta( {"a": "b", "key2": "anotherValue"} );
-
+        deck_str = JSON.stringify(deck);
+        gapi.hangout.data.submitDelta( {"deck": deck_str} );
       });
 }
 
