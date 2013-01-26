@@ -1,28 +1,4 @@
-function showParticipants() {
-  var participants = gapi.hangout.getParticipants();
-
-  var retVal = '<p>Participants: </p><ul>';
-
-  for (var index in participants) {
-    var participant = participants[index];
-
-    if (!participant.person) {
-      retVal += '<li>A participant not running this app</li>';
-    }
-    retVal += '<li>' + participant.person.displayName + '</li>';
-  }
-
-  retVal += '</ul>';
-
-  var div = document.getElementById('participantsDiv');
-
-  div.innerHTML = retVal;
-}
-
-/* 
-
-  Returns an array representing a standard 52 card deck. 
-*/
+//  Returns an array representing a standard 52 card deck. 
 function buildDeck52() {
   var suits = {
     HEARTS : "Hearts",
@@ -60,7 +36,8 @@ function shuffle(deck) {
 
 var onStateChange = function(eventObj) {
   for (var i = 0; i < eventObj.addedKeys.length; ++i) {
-    alert(eventObj.addedKeys[i].key + " : " + 
+    alert("Added key:\n" + 
+        eventObj.addedKeys[i].key + " : " + 
         eventObj.addedKeys[i].value + ", " + 
         eventObj.addedKeys[i].timestamp);
   }
